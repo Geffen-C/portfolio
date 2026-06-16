@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geffen Cooper — PhD Researcher · Edge AI · UT Austin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #f7f7f5;
+      --border: #e8e8e4;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --text-light: #9a9a9a;
+      --accent: #1d4ed8;
+      --accent-light: #eff4ff;
+      --accent-muted: #3b5fc0;
+      --tag-bg: #f0f0ec;
+      --tag-text: #3a3a3a;
+      --radius: 8px;
+      --max-w: 760px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo {
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 52px 0 0; }
+    section:last-of-type { padding-bottom: 80px; }
+
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    /* ── HERO ── */
+    #about { padding-top: 56px; }
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .hero-name {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .hero-title {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .hero-title a { color: var(--accent); text-decoration: none; }
+    .hero-title a:hover { text-decoration: underline; }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 22px;
+    }
+    .hero-bio-section {
+      margin-top: 36px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-bio {
+      font-size: 15px;
+      color: #333;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .hero-bio:last-child { margin-bottom: 0; }
+    .hero-bio a { color: var(--accent); text-decoration: none; }
+    .hero-bio a:hover { text-decoration: underline; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--bg);
+    }
+    .btn:hover { background: var(--bg-subtle); border-color: #ccc; }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .btn-primary:hover { background: var(--accent-muted); border-color: var(--accent-muted); }
+    .btn svg { flex-shrink: 0; }
+
+    /* ── RESEARCH AREAS ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .research-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+    .research-card-icon {
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .research-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .research-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ── FEATURED DEMO ── */
+    .demo-section {
+      margin-top: 48px;
+      background: #111;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+    }
+    .demo-header {
+      padding: 28px 32px 20px;
+    }
+    .demo-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #60a5fa;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .demo-headline {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #f5f5f5;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .demo-subhead {
+      font-size: 14px;
+      color: #9ca3af;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+    .demo-video-wrap {
+      position: relative;
+      background: #000;
+      border-top: 1px solid #2a2a2a;
+    }
+    .demo-video-wrap video {
+      width: 100%;
+      display: block;
+      max-height: 460px;
+      object-fit: contain;
+    }
+
+    /* ── SKILLS ── */
+    .skills-row {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .skills-group {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .skills-group-label {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      min-width: 130px;
+      flex-shrink: 0;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 5px;
+      padding: 3px 9px;
+      font-size: 12.5px;
+      font-weight: 450;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .pub-item {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-thumb {
+      width: 88px;
+      height: 66px;
+      border-radius: 6px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      background: var(--bg-subtle);
+    }
+    .pub-venue {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      background: var(--accent-light);
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-bottom: 7px;
+    }
+    .pub-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+      margin-bottom: 5px;
+      color: var(--text);
+    }
+    .pub-authors {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .pub-authors em { font-style: normal; font-weight: 600; color: var(--text); }
+    .pub-meta {
+      font-size: 12.5px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    .pub-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #fef3c7;
+      color: #92400e;
+      margin-left: 8px;
+    }
+    .pub-links { display: flex; gap: 10px; }
+    .pub-link {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .pub-link:hover { text-decoration: underline; }
+
+    /* ── NEWS ── */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .news-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-light);
+      padding-top: 1px;
+    }
+    .news-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .news-text a { color: var(--accent); text-decoration: none; }
+    .news-text a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero-top { grid-template-columns: 1fr; }
+      .hero-photo { width: 90px; height: 90px; order: -1; }
+      .hero-name { font-size: 30px; }
+      .demo-header { padding: 20px 20px 16px; }
+      .demo-headline { font-size: 17px; }
+      .research-grid { grid-template-columns: 1fr; }
+      .pub-item { grid-template-columns: 1fr; }
+      .pub-thumb { width: 100%; height: 140px; }
+      .news-item { grid-template-columns: 1fr; gap: 4px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .skills-group { flex-direction: column; gap: 6px; }
+      .skills-group-label { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#about">Geffen Cooper</a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <!-- name + photo row -->
+    <div class="hero-top">
+      <div>
+        <h1 class="hero-name">Geffen Cooper</h1>
+        <p class="hero-title">
+          Ph.D. Candidate · <strong>UT Austin ECE</strong> ·
+          <a href="https://radum.ece.utexas.edu/">System Level Design Group</a>
+        </p>
+        <div class="hero-links">
+          <a class="btn btn-primary" href="https://geffen-cooper.github.io/assets/pdf/Resume_Geffen_Cooper_UT_Austin.pdf" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Résumé
+          </a>
+          <a class="btn" href="https://scholar.google.com/citations?user=g0MnbrcAAAAJ" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Scholar
+          </a>
+          <a class="btn" href="https://github.com/geffen-cooper" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/geffen-cooper-48017819b" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn" href="mailto:geffen@utexas.edu">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+      <img
+        class="hero-photo"
+        src="https://geffen-cooper.github.io/assets/img/headshot.jpg"
+        alt="Geffen Cooper"
+      />
+    </div>
+
+    <!-- bio -->
+    <div class="hero-bio-section">
+      <p class="hero-bio">
+        I'm a fourth-year Ph.D. student in the <a href="https://radum.ece.utexas.edu/">System Level Design group</a> at UT Austin, advised by Professor <a href="https://www.ece.utexas.edu/people/faculty/radu-marculescu">Radu Marculescu</a>. Before my Ph.D., I graduated from UC Santa Barbara in 2022 with a B.S. in Computer Engineering.
+      </p>
+      <p class="hero-bio">
+        I build machine learning systems for <strong>batteryless, energy-harvesting sensors</strong> — devices that run entirely on ambient power and transmit data only when they can. The core challenge: how do you do reliable, real-time inference when your sensor goes dark unpredictably and every packet costs energy?
+      </p>
+      <p class="hero-bio">
+        My work spans the full stack, from hardware-level energy harvesting circuits to the algorithms that run on top of them. I've developed learned sampling strategies for gesture recognition under energy constraints, RL-based policies for deciding <em>when</em> a batteryless device should spend energy transmitting, and general sensor selection methods for practical deep learning-based HAR.
+      </p>
+
+    </div>
+
+  </section>
+
+  <div class="demo-section">
+    <div class="demo-header">
+      <span class="demo-eyebrow">▶ Live System Demo</span>
+      <h2 class="demo-headline">Batteryless Sensors, Streaming in Real Time</h2>
+      <p class="demo-subhead">Custom solar-harvesting accelerometer nodes transmit asynchronous data streams for on-device human activity recognition — no batteries required, ever.</p>
+    </div>
+    <div class="demo-video-wrap">
+      <video controls preload="none">
+        <source src="https://geffen-cooper.github.io/assets/video/batteryless_demo_2026_.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <p class="section-label">Research</p>
+    <div class="research-grid">
+      <div class="research-card">
+        <span class="research-card-icon">⚡</span>
+        <h3>Batteryless & Energy-Harvesting Systems</h3>
+        <p>Designing ML pipelines for sensors powered entirely by ambient energy — solar, kinetic, RF — that operate intermittently and asynchronously.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-card-icon">🏃</span>
+        <h3>Human Activity Recognition</h3>
+        <p>Learning to classify motion and gestures from sparse, irregular data streams where power interruptions are the norm, not the exception.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-card-icon">📡</span>
+        <h3>Edge AI & Embedded ML</h3>
+        <p>Developing low-power deep learning algorithms for resource-constrained microcontrollers and wearable IoT devices.</p>
+      </div>
+      <div class="research-card">
+        <span class="research-card-icon">📊</span>
+        <h3>Time-Series & Sensor Fusion</h3>
+        <p>Efficient algorithms for processing asynchronous multi-sensor data, including learned sampling strategies and sensor selection methods.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+      <p class="section-label">Skills & Tools</p>
+      <div class="skills-row">
+        <div class="skills-group">
+          <span class="skills-group-label">Languages</span>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">C / C++</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <span class="skills-group-label">ML / DL</span>
+          <div class="tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">NumPy / SciPy</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Weights & Biases</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <span class="skills-group-label">Embedded / Hardware</span>
+          <div class="tags">
+            <span class="tag">ARM Cortex-M</span>
+            <span class="tag">TinyML</span>
+            <span class="tag">Energy Harvesting ICs</span>
+            <span class="tag">RTOS</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <span class="skills-group-label">Tools</span>
+          <div class="tags">
+            <span class="tag">Git</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Docker</span>
+            <span class="tag">LaTeX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <p class="section-label">Selected Publications</p>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <img class="pub-thumb" src="https://geffen-cooper.github.io/assets/img/publication_preview/learned_sampling.png" alt="Learned Sampling" />
+        <div>
+          <span class="pub-venue">IEEE BSN 2025</span>
+          <div class="pub-title">Batteryless Gesture Recognition via Learned Sampling</div>
+          <div class="pub-authors"><em>Geffen Cooper</em>, Radu Marculescu</div>
+          <div class="pub-meta">IEEE 21st International Conference on Body Sensor Networks · Oct 2025</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Batteryless_Gesture_Recognition_via_Learned_Sampling.pdf" target="_blank">PDF →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <img class="pub-thumb" src="https://geffen-cooper.github.io/assets/img/publication_preview/packet_pruning.png" alt="Packet Pruning" />
+        <div>
+          <span class="pub-venue">IEEE BSN 2024</span>
+          <span class="pub-badge">Oral</span>
+          <div class="pub-title">Packet Pruning: Finding Better Energy Spending Policies for Batteryless Human Activity Recognition</div>
+          <div class="pub-authors"><em>Geffen Cooper</em>, Radu Marculescu</div>
+          <div class="pub-meta">IEEE 20th International Conference on Body Sensor Networks · Oct 2024</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Packet_Pruning_Finding_Better_Energy_Spending_Policies_for_Batteryless_Human_Activity_Recognition.pdf" target="_blank">PDF →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <img class="pub-thumb" src="https://geffen-cooper.github.io/assets/img/publication_preview/sensor_selection.png" alt="Sensor Selection" />
+        <div>
+          <span class="pub-venue">IEEE/ACM IoTDI 2024</span>
+          <div class="pub-title">Beyond Thresholds: A General Approach to Sensor Selection for Practical Deep Learning-based HAR</div>
+          <div class="pub-authors"><em>Geffen Cooper</em>, Radu Marculescu</div>
+          <div class="pub-meta">IEEE/ACM Ninth International Conference on IoT Design and Implementation · May 2024 · Hong Kong</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Beyond_Thresholds_A_General_Approach_to_Sensor_Selection_for_Practical_Deep_Learning-based_HAR.pdf" target="_blank">PDF →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <img class="pub-thumb" src="https://geffen-cooper.github.io/assets/img/publication_preview/KEH.png" alt="Prototype Demo" />
+        <div>
+          <span class="pub-venue">IEEE/ACM IoTDI 2024</span>
+          <div class="pub-title">Demo: A Prototype for Machine Learning with Batteryless Sensors</div>
+          <div class="pub-authors"><em>Geffen Cooper</em>, Tianda Huang, Radu Marculescu</div>
+          <div class="pub-meta">IEEE/ACM Ninth International Conference on IoT Design and Implementation · May 2024 · Hong Kong</div>
+          <div class="pub-links">
+            <a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Demo_Abstract_A_Prototype_for_Machine_Learning_with_Batteryless_Sensors.pdf" target="_blank">PDF →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- NEWS -->
+  <section id="news">
+    <p class="section-label">News</p>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="news-date">May 2026</span>
+        <span class="news-text">Passed my <a href="https://cloud.wikis.utexas.edu/wiki/spaces/ECEHandbook/pages/73368896/Progress+Review">progress review</a> — entering the final year of my Ph.D.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Aug 2025</span>
+        <span class="news-text">Paper accepted at <a href="https://bsn.embs.org/2025/">IEEE BSN 2025</a>.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jun 2025</span>
+        <span class="news-text">Started a data science internship at <a href="https://www.wiliot.com/">Wiliot</a>, working on IoT intelligence at scale.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jan 2025</span>
+        <span class="news-text">Poster received an award at <a href="https://sites.utexas.edu/gain/gain-2025-winners/">GAIN 2025</a>.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Nov 2024</span>
+        <span class="news-text">Advanced to doctoral candidacy.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Aug 2024</span>
+        <span class="news-text"><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2428656">NSF proposal</a> for <em>Batteryless Frontiers in Edge AI</em> funded.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jul 2024</span>
+        <span class="news-text">IEEE BSN 2024 paper accepted as an oral presentation. Co-organized the <a href="https://sites.google.com/utexas.edu/ieebsn-waire">WAIRE</a> workshop on AI + Energy Harvesting. Received a travel award to present in Chicago.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jan 2024</span>
+        <span class="news-text">One paper and two demos accepted at <a href="https://conferences.computer.org/iotDI/2024/">IoTDI 2024</a>. Received a professional development award to present in Hong Kong.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER / CONTACT -->
+<footer id="contact" style="margin-top: 72px;">
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Geffen Cooper · UT Austin</span>
+    <div class="footer-links">
+      <a href="mailto:geffen@utexas.edu">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        geffen@utexas.edu
+      </a>
+      <a href="https://github.com/geffen-cooper" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/geffen-cooper-48017819b" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://scholar.google.com/citations?user=g0MnbrcAAAAJ" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Scholar
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
