@@ -1,3 +1,8 @@
+Here's the full HTML — select all and copy everything below this line:
+
+---
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +42,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
     nav {
       position: sticky;
       top: 0;
@@ -76,7 +80,6 @@
     }
     .nav-links a:hover { color: var(--text); }
 
-    /* ── LAYOUT ── */
     main {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -103,7 +106,6 @@
       margin-bottom: 16px;
     }
 
-    /* ── HERO ── */
     #about { padding-top: 56px; }
     .hero-top {
       display: grid;
@@ -178,7 +180,6 @@
     .btn-primary:hover { background: var(--accent-muted); border-color: var(--accent-muted); }
     .btn svg { flex-shrink: 0; }
 
-    /* ── RESEARCH AREAS ── */
     .research-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -207,7 +208,6 @@
       line-height: 1.55;
     }
 
-    /* ── FEATURED DEMO ── */
     .demo-section {
       margin-top: 48px;
       background: #111;
@@ -215,9 +215,7 @@
       overflow: hidden;
       border: 1px solid #2a2a2a;
     }
-    .demo-header {
-      padding: 28px 32px 20px;
-    }
+    .demo-header { padding: 28px 32px 20px; }
     .demo-eyebrow {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 11px;
@@ -254,17 +252,8 @@
       object-fit: contain;
     }
 
-    /* ── SKILLS ── */
-    .skills-row {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .skills-group {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
+    .skills-row { display: flex; flex-direction: column; gap: 14px; }
+    .skills-group { display: flex; align-items: baseline; gap: 12px; }
     .skills-group-label {
       font-size: 12.5px;
       font-weight: 500;
@@ -272,11 +261,7 @@
       min-width: 130px;
       flex-shrink: 0;
     }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag {
       display: inline-block;
       background: var(--tag-bg);
@@ -287,12 +272,7 @@
       font-weight: 450;
     }
 
-    /* ── PUBLICATIONS ── */
-    .pub-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
+    .pub-list { display: flex; flex-direction: column; gap: 1px; }
     .pub-item {
       display: grid;
       grid-template-columns: 88px 1fr;
@@ -329,17 +309,9 @@
       margin-bottom: 5px;
       color: var(--text);
     }
-    .pub-authors {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
+    .pub-authors { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
     .pub-authors em { font-style: normal; font-weight: 600; color: var(--text); }
-    .pub-meta {
-      font-size: 12.5px;
-      color: var(--text-light);
-      margin-bottom: 10px;
-    }
+    .pub-meta { font-size: 12.5px; color: var(--text-light); margin-bottom: 10px; }
     .pub-badge {
       display: inline-block;
       font-size: 11px;
@@ -351,19 +323,10 @@
       margin-left: 8px;
     }
     .pub-links { display: flex; gap: 10px; }
-    .pub-link {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .pub-link { font-size: 12.5px; font-weight: 500; color: var(--accent); text-decoration: none; }
     .pub-link:hover { text-decoration: underline; }
 
-    /* ── NEWS ── */
-    .news-list {
-      display: flex;
-      flex-direction: column;
-    }
+    .news-list { display: flex; flex-direction: column; }
     .news-item {
       display: grid;
       grid-template-columns: 110px 1fr;
@@ -373,25 +336,12 @@
       align-items: baseline;
     }
     .news-item:last-child { border-bottom: none; }
-    .news-date {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-      color: var(--text-light);
-      padding-top: 1px;
-    }
-    .news-text {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #333;
-    }
+    .news-date { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--text-light); padding-top: 1px; }
+    .news-text { font-size: 14px; line-height: 1.6; color: #333; }
     .news-text a { color: var(--accent); text-decoration: none; }
     .news-text a:hover { text-decoration: underline; }
 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 36px 0;
-    }
+    footer { border-top: 1px solid var(--border); padding: 36px 0; }
     .footer-inner {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -401,14 +351,8 @@
       align-items: center;
       gap: 20px;
     }
-    .footer-copy {
-      font-size: 13px;
-      color: var(--text-light);
-    }
-    .footer-links {
-      display: flex;
-      gap: 20px;
-    }
+    .footer-copy { font-size: 13px; color: var(--text-light); }
+    .footer-links { display: flex; gap: 20px; }
     .footer-links a {
       font-size: 13px;
       color: var(--text-muted);
@@ -420,18 +364,17 @@
     }
     .footer-links a:hover { color: var(--text); }
 
-    /* ── DIVIDER ── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin-top: 48px;
-    }
+    .divider { border: none; border-top: 1px solid var(--border); margin-top: 48px; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
+      .nav-logo { display: none; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 12.5px; }
       .hero-top { grid-template-columns: 1fr; }
-      .hero-photo { width: 90px; height: 90px; order: -1; }
-      .hero-name { font-size: 30px; }
+      .hero-photo { width: 130px; height: 130px; order: -1; display: block; margin: 0 auto; }
+      .hero-name { font-size: 30px; text-align: center; }
+      .hero-title { text-align: center; }
+      .hero-links { justify-content: center; }
       .demo-header { padding: 20px 20px 16px; }
       .demo-headline { font-size: 17px; }
       .research-grid { grid-template-columns: 1fr; }
@@ -446,7 +389,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="#about">Geffen Cooper</a>
@@ -461,10 +403,7 @@
 
 <main>
 
-  <!-- ABOUT -->
   <section id="about">
-
-    <!-- name + photo row -->
     <div class="hero-top">
       <div>
         <h1 class="hero-name">Geffen Cooper</h1>
@@ -495,14 +434,9 @@
           </a>
         </div>
       </div>
-      <img
-        class="hero-photo"
-        src="https://geffen-cooper.github.io/assets/img/headshot.jpg"
-        alt="Geffen Cooper"
-      />
+      <img class="hero-photo" src="https://geffen-cooper.github.io/assets/img/headshot.jpg" alt="Geffen Cooper" />
     </div>
 
-    <!-- bio -->
     <div class="hero-bio-section">
       <p class="hero-bio">
         I'm a fourth-year Ph.D. student in the <a href="https://radum.ece.utexas.edu/">System Level Design group</a> at UT Austin, advised by Professor <a href="https://www.ece.utexas.edu/people/faculty/radu-marculescu">Radu Marculescu</a>. Before my Ph.D., I graduated from UC Santa Barbara in 2022 with a B.S. in Computer Engineering.
@@ -513,9 +447,7 @@
       <p class="hero-bio">
         My work spans the full stack, from hardware-level energy harvesting circuits to the algorithms that run on top of them. I've developed learned sampling strategies for gesture recognition under energy constraints, RL-based policies for deciding <em>when</em> a batteryless device should spend energy transmitting, and general sensor selection methods for practical deep learning-based HAR.
       </p>
-
     </div>
-
   </section>
 
   <div class="demo-section">
@@ -534,7 +466,6 @@
 
   <hr class="divider" />
 
-  <!-- RESEARCH -->
   <section id="research">
     <p class="section-label">Research</p>
     <div class="research-grid">
@@ -606,11 +537,9 @@
 
   <hr class="divider" />
 
-  <!-- PUBLICATIONS -->
   <section id="publications">
     <p class="section-label">Selected Publications</p>
     <div class="pub-list">
-
       <div class="pub-item">
         <img class="pub-thumb" src="https://geffen-cooper.github.io/assets/img/publication_preview/learned_sampling.png" alt="Learned Sampling" />
         <div>
@@ -618,12 +547,9 @@
           <div class="pub-title">Batteryless Gesture Recognition via Learned Sampling</div>
           <div class="pub-authors"><em>Geffen Cooper</em>, Radu Marculescu</div>
           <div class="pub-meta">IEEE 21st International Conference on Body Sensor Networks · Oct 2025</div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Batteryless_Gesture_Recognition_via_Learned_Sampling.pdf" target="_blank">PDF →</a>
-          </div>
+          <div class="pub-links"><a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Batteryless_Gesture_Recognition_via_Learned_Sampling.pdf" target="_blank">PDF →</a></div>
         </div>
       </div>
-
       <div class="pub-item">
         <img class="pub-thumb" src="https://geffen-cooper.github.io/assets/img/publication_preview/packet_pruning.png" alt="Packet Pruning" />
         <div>
@@ -632,12 +558,9 @@
           <div class="pub-title">Packet Pruning: Finding Better Energy Spending Policies for Batteryless Human Activity Recognition</div>
           <div class="pub-authors"><em>Geffen Cooper</em>, Radu Marculescu</div>
           <div class="pub-meta">IEEE 20th International Conference on Body Sensor Networks · Oct 2024</div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Packet_Pruning_Finding_Better_Energy_Spending_Policies_for_Batteryless_Human_Activity_Recognition.pdf" target="_blank">PDF →</a>
-          </div>
+          <div class="pub-links"><a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Packet_Pruning_Finding_Better_Energy_Spending_Policies_for_Batteryless_Human_Activity_Recognition.pdf" target="_blank">PDF →</a></div>
         </div>
       </div>
-
       <div class="pub-item">
         <img class="pub-thumb" src="https://geffen-cooper.github.io/assets/img/publication_preview/sensor_selection.png" alt="Sensor Selection" />
         <div>
@@ -645,12 +568,9 @@
           <div class="pub-title">Beyond Thresholds: A General Approach to Sensor Selection for Practical Deep Learning-based HAR</div>
           <div class="pub-authors"><em>Geffen Cooper</em>, Radu Marculescu</div>
           <div class="pub-meta">IEEE/ACM Ninth International Conference on IoT Design and Implementation · May 2024 · Hong Kong</div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Beyond_Thresholds_A_General_Approach_to_Sensor_Selection_for_Practical_Deep_Learning-based_HAR.pdf" target="_blank">PDF →</a>
-          </div>
+          <div class="pub-links"><a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Beyond_Thresholds_A_General_Approach_to_Sensor_Selection_for_Practical_Deep_Learning-based_HAR.pdf" target="_blank">PDF →</a></div>
         </div>
       </div>
-
       <div class="pub-item">
         <img class="pub-thumb" src="https://geffen-cooper.github.io/assets/img/publication_preview/KEH.png" alt="Prototype Demo" />
         <div>
@@ -658,18 +578,14 @@
           <div class="pub-title">Demo: A Prototype for Machine Learning with Batteryless Sensors</div>
           <div class="pub-authors"><em>Geffen Cooper</em>, Tianda Huang, Radu Marculescu</div>
           <div class="pub-meta">IEEE/ACM Ninth International Conference on IoT Design and Implementation · May 2024 · Hong Kong</div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Demo_Abstract_A_Prototype_for_Machine_Learning_with_Batteryless_Sensors.pdf" target="_blank">PDF →</a>
-          </div>
+          <div class="pub-links"><a class="pub-link" href="https://geffen-cooper.github.io/assets/pdf/Demo_Abstract_A_Prototype_for_Machine_Learning_with_Batteryless_Sensors.pdf" target="_blank">PDF →</a></div>
         </div>
       </div>
-
     </div>
   </section>
 
   <hr class="divider" />
 
-  <!-- NEWS -->
   <section id="news">
     <p class="section-label">News</p>
     <div class="news-list">
@@ -710,7 +626,6 @@
 
 </main>
 
-<!-- FOOTER / CONTACT -->
 <footer id="contact" style="margin-top: 72px;">
   <div class="footer-inner">
     <span class="footer-copy">© 2026 Geffen Cooper · UT Austin</span>
